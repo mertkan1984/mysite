@@ -1,0 +1,15 @@
+`
+		query MyQuery {
+  file(relativePath: {eq: "car.jpg"}) {
+    childImageSharp {
+      fluid {
+        #aspectRatio
+        #base64
+        #sizes
+        #src
+        #srcSet
+        ...GatsbyImageSharpFluid_tracedSVG
+      }
+    }
+  }
+}`
