@@ -1,0 +1,42 @@
+backend:
+  name: git-gateway
+  accept_roles:
+    - admin
+    - editor
+slug:
+  encoding: "ascii"
+  clean_accents: true
+  sanitize_replacement: "_"
+
+media_folder: static/img
+public_folder: /img
+
+collections:
+  - name: "blog"
+    label: "Blog"
+    folder: "content/blog"
+    create: true
+    slug: "{{path}}"
+    editor:
+     preview: true
+    fields:
+      - { label: "Path" , name: "path"}
+      - label: "Featured Image"
+        name: "thumbnail"
+        widget: "image"
+        media_library:
+          config:
+            multiple: true
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - label: "Tags"
+        name: "tags"
+        widget: "select"
+        multiple: true
+        options: ["genel","Tasarım","Development"]
+        default: ["Design"]
+
+
+
