@@ -1,0 +1,15 @@
+-Website þablonu
+-sosyalmedya iconlarýnýn hazýrlanmasý
++navmenu responsive - düzenlenecek
++ blog sayfalama (pagination) -Düzenlenecek
+-sosyal medyada paylaþ butonu ekleme
+
+-arama kutusu
+-sosyal medya
+-admin panelinin path deðiþiklik
+-site içerikleri
+-sitemap.xml
+-analytics kaydý
+-console kaydý
+
+*Düzenleme içeriklerin kýsýmlarý belli olduktan sonra olacak

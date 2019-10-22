@@ -1,11 +1,11 @@
-const axios = require('axios');
+//const axios = require('axios');
 const path = require('path');
 const _ = require("lodash");
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
-const get = endpoint => axios.get(`https://pokeapi.co/api/v2${endpoint}`);
+//const get = endpoint => axios.get(`https://pokeapi.co/api/v2${endpoint}`);
 
-const getPokemonData = names =>
+/*const getPokemonData = names =>
   Promise.all(
     names.map(async name => {
       const { data: pokemon } = await get(`/pokemon/${name}`);
@@ -19,7 +19,7 @@ const getPokemonData = names =>
 
       return { ...pokemon, abilities };
     })
-  );
+  );*/
 
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
@@ -36,7 +36,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 
 exports.createPages = async ({ actions: { createPage }, graphql,reporter  }) => {
  
-  const allPokemon = await getPokemonData(['pikachu', 'charizard', 'squirtle']);
+  //const allPokemon = await getPokemonData(['pikachu', 'charizard', 'squirtle']);
   const blogPostTemplate = path.resolve("src/templates/blog.js")
   const tagTemplate = path.resolve("src/templates/tags.js")
   
@@ -64,7 +64,6 @@ exports.createPages = async ({ actions: { createPage }, graphql,reporter  }) => 
             }
             frontmatter {
               path
-              tags
             }
           }
         }
@@ -104,10 +103,12 @@ exports.createPages = async ({ actions: { createPage }, graphql,reporter  }) => 
     })
   })
 
+
+
   /*result.data.allMarkdownRemark.edges.forEach(({ node }) => {
     createPage({
       path: node.frontmatter.path,
-      component: path.resolve('src/templates/post.js')
+      component: path.resolve('src/templates/blog.js')
     })
   })*/
 
@@ -120,8 +121,11 @@ exports.createPages = async ({ actions: { createPage }, graphql,reporter  }) => 
     })
   })
 
+
+
   // Create a page that lists all Pokémon.
-  createPage({
+
+  /*createPage({
     path: `/`,
     component: require.resolve('./src/templates/all-pokemon.js'),
     context: { allPokemon }
@@ -143,6 +147,26 @@ exports.createPages = async ({ actions: { createPage }, graphql,reporter  }) => 
         context: { pokemon, ability }
       });
     });
-  });
+  }); */
+
+  //const posts = result.data.allMarkdownRemark.edges
+  const postsPerPage = 6
+  const numPages = Math.ceil(posts.length / postsPerPage)
+  Array.from({ length: numPages }).forEach((_, i) => {
+    createPage({
+      path: i === 0 ? `/blog` : `/blog/${i + 1}`,
+      component: path.resolve("./src/templates/blog-list-template.js"),
+      context: {
+        limit: postsPerPage,
+        skip: i * postsPerPage,
+        numPages,
+        currentPage: i + 1,
+      },
+    })
+  })
+
+
+
+//END
 };
 
