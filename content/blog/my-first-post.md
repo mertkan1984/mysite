@@ -8,3 +8,9 @@ tags:
   - Tasarım
 ---
 This is my first Gatsby post written in Markdown!
+
+<b>dd</b>
+
+```
+data
+```
