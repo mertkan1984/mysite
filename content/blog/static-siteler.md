@@ -1,5 +1,5 @@
 ---
-path: static-siteler
+path: /static-siteler
 thumbnail: /img/statik-site.png
 title: Statik Site Nedir
 date: 2019-10-23T07:37:31.331Z
