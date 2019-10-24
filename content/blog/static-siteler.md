@@ -13,6 +13,8 @@ Tasarlanması en kolay olan bu siteler veri tabanı tablolarının tasarımını
 
 Site içeriği elle değiştirilmeden yeni siteyi yapan kişi tarafından düzenleme yapılamadan hiç bir değişikliğe uğramaz.
 
+![static site](/img/statik-site.png "statik site")
+
 Statik Siteler tamamen sitatik oldukları manasına gelmez. Pre-build dediğimiz önceden oluşturulmuş html, css, js gibi dosyalardan ibarettir.
 
 ## Statik Sitelerin Sağladığı Avantajlar
