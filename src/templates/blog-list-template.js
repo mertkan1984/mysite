@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
+import "../components/style.css"
 import { Link } from "gatsby" 
 
 export default class BlogList extends React.Component {
@@ -19,8 +20,7 @@ export default class BlogList extends React.Component {
       
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
-          return <div key={node.fields.slug}>{title} - {node.fields.slug}</div>
-
+          return <div key={node.fields.slug}><Link to={node.frontmatter.path}>{title}</Link> </div>
         })}
 
 {!isFirst && (
@@ -62,6 +62,7 @@ export const blogListQuery = graphql`
           }
           frontmatter {
             title
+            path
           }
         }
       }

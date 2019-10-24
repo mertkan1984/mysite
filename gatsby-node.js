@@ -40,7 +40,7 @@ exports.createPages = async ({ actions: { createPage }, graphql,reporter  }) => 
   const blogPostTemplate = path.resolve("src/templates/blog.js")
   const tagTemplate = path.resolve("src/templates/tags.js")
   
-  const dogData = [
+  /*const dogData = [
     {
        name: "Fido",
        breed: "Sheltie",
@@ -49,7 +49,7 @@ exports.createPages = async ({ actions: { createPage }, graphql,reporter  }) => 
       name: "Sparky",
       breed: "Corgi",
     },
-  ]
+  ]*/
 
    const result = await graphql(`
     {
@@ -64,7 +64,9 @@ exports.createPages = async ({ actions: { createPage }, graphql,reporter  }) => 
             }
             frontmatter {
               path
+              thumbnail
             }
+            html
           }
         }
       }
@@ -84,13 +86,13 @@ exports.createPages = async ({ actions: { createPage }, graphql,reporter  }) => 
   // Create post detail pages
   posts.forEach(({ node }) => {
     createPage({
-      path: node.frontmatter.path, //node.fields.slug,
+      path: node.frontmatter.path, //node.fields.slug,  
       component: blogPostTemplate,
     })
   })
   
   // Extract tag data from query
-  const tags = result.data.tagsGroup.group
+  /*const tags = result.data.tagsGroup.group
  
   // Make tag pages
   tags.forEach(tag => {
@@ -101,7 +103,7 @@ exports.createPages = async ({ actions: { createPage }, graphql,reporter  }) => 
         tag: tag.fieldValue,
       },
     })
-  })
+  })*/
 
 
 
@@ -113,13 +115,13 @@ exports.createPages = async ({ actions: { createPage }, graphql,reporter  }) => 
   })*/
 
 
-  dogData.forEach(dog =>{
+  /*dogData.forEach(dog =>{
     createPage({
       path:`/${dog.name}`,
       component: require.resolve('./src/templates/dog-template.js'),
       context : {dog},
     })
-  })
+  })*/
 
 
 
@@ -150,7 +152,7 @@ exports.createPages = async ({ actions: { createPage }, graphql,reporter  }) => 
   }); */
 
   //const posts = result.data.allMarkdownRemark.edges
-  const postsPerPage = 6
+  /*const postsPerPage = 6
   const numPages = Math.ceil(posts.length / postsPerPage)
   Array.from({ length: numPages }).forEach((_, i) => {
     createPage({
@@ -163,7 +165,7 @@ exports.createPages = async ({ actions: { createPage }, graphql,reporter  }) => 
         currentPage: i + 1,
       },
     })
-  })
+  })*/
 
 
 

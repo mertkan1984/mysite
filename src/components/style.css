@@ -1,6 +1,11 @@
+.wrapper{
+  background-color: #333;
+}
 .topnav {
+  margin:0 auto;
   overflow: hidden;
   background-color: #333;
+  width: 960px;
 }
 
 .topnav a {
@@ -33,6 +38,25 @@
     float: right;
     display: block;
   }
+}
+
+a{
+  text-decoration: none;
+  color:black;
+}
+
+.footer{
+  background-color: #333;
+  position: relative;
+  height: 100px;
+  margin-top:800px;
+  padding:5px;
+  clear: both;
+  text-align: center;
+}
+
+.footer a{
+  color:white;
 }
 
 @media screen and (max-width: 600px) {

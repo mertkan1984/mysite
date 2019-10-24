@@ -29,6 +29,7 @@ const TagsPage = ({
     </div>
   </div>
 )
+
 TagsPage.propTypes = {
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
@@ -46,7 +47,9 @@ TagsPage.propTypes = {
     }),
   }),
 }
+
 export default TagsPage
+
 export const pageQuery = graphql`
   query {
     site {

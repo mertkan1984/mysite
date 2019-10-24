@@ -4,8 +4,6 @@ import "./style.css"
 import { FaBars } from 'react-icons/fa'
 import { Link } from "gatsby"
 
-
-
 /*class Nav extends Component {
 
 	handleClick = () => {
@@ -34,7 +32,6 @@ import { Link } from "gatsby"
 	}
 } */
 
-
 const show = () =>{
 	var x = document.getElementById("myTopnav");
 	  if (x.className === "topnav") {
@@ -45,19 +42,14 @@ const show = () =>{
 }
 
 const Nav = () =>(
-	
+<div className="wrapper">	
 	<div className="topnav" id="myTopnav">
-			  <Link to="/page-2/" >güncel</Link>
-			  <Link to="/page-2/">infografik</Link>
-			  <Link to="/page-2/">Contact</Link>
-			  <Link to="/page-2/">About</Link>
-			  <Link to="#" className="icon" onClick={show}> 
-			    <FaBars />
-			  </Link>
-			</div>
-
-
+	  <Link to="/">Blog</Link>
+	  <Link to="#" className="icon" onClick={show}> 
+	    <FaBars />
+	  </Link>
+	</div>
+</div>
 )
-
 
 export default Nav
